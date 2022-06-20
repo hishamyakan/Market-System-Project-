@@ -33,7 +33,8 @@ public class Transceiver {
         try {
             Result = myIn.readLine();
         } catch (IOException e) {
-            e.printStackTrace();
+            //e.printStackTrace();
+            Result = "Server Is Down";
 
         }
         return Result;

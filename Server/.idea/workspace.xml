@@ -4,7 +4,24 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="84f4a3db-393b-40ba-aad7-b2d2f66e068a" name="Default Changelist" comment="" />
+    <list default="true" id="84f4a3db-393b-40ba-aad7-b2d2f66e068a" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../Client/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Client/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Client/out/production/Client/Market_Client/Account.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/out/production/Client/Market_Client/Account.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Client/out/production/Client/Market_Client/Client_Market.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/out/production/Client/Market_Client/Client_Market.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Client/out/production/Client/Market_Client/Communicator.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/out/production/Client/Market_Client/Communicator.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Client/out/production/Client/Market_Client/Transceiver.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/out/production/Client/Market_Client/Transceiver.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Client/src/Market_Client/Client_Market.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/src/Market_Client/Client_Market.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Client/src/Market_Client/Transceiver.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/src/Market_Client/Transceiver.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Server/Market_Server/Account.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Server/Market_Server/Account.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Server/Market_Server/Communicator.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Server/Market_Server/Communicator.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Server/Market_Server/ServiceProvider.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Server/Market_Server/ServiceProvider.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Server/Market_Server/Transceiver.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Server/Market_Server/Transceiver.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Server/Market_Server/handler.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Server/Market_Server/handler.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Market_Server/Transceiver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Market_Server/Transceiver.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -32,16 +49,12 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/PC/OneDrive/Documents/GitHub/Market-System-Project-/Client&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;
-  }
-}</component>
+  <component name="PropertiesComponent">
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.0" />
+  </component>
   <component name="RunManager">
     <configuration name="Server_Market" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Market_Server.Server_Market" />
