@@ -3,10 +3,7 @@ package Market_Server;
 
 
 
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.PrintWriter;
 import java.net.Socket;
 
 
@@ -16,16 +13,12 @@ public class handler implements Runnable{
     private static final int incorrectPassword = 2;
     private static final int validLogin = 3;
 
-
-    private Socket Client_To_Handle;
-    private BufferedReader myIn;
-    private PrintWriter myOut;
+    private Communicator communicator;
 
     public handler(Socket clientSocket) throws IOException
     {
-        this.Client_To_Handle = clientSocket;
-        this.myIn = new BufferedReader(new InputStreamReader(Client_To_Handle.getInputStream()));
-        this.myOut = new PrintWriter(Client_To_Handle.getOutputStream(),true);
+
+        this.communicator = new Communicator(clientSocket);
     }
 
     @Override
@@ -34,8 +27,8 @@ public class handler implements Runnable{
 
         while(true)
         {
-            String request = receiveClientMSG();
 
+            String request = communicator.receiveMSG();
             //No Requests Arrived So Wait
             if(request == null)
             {
@@ -46,7 +39,7 @@ public class handler implements Runnable{
             else if (request.contains("Quit"))
             {
                 System.out.println("Terminating This Thread");
-                myOut.println("Quiting");
+                communicator.sendMSG("Quiting");
                 Server_Market.terminateT(this);
                 break;
             }
@@ -59,23 +52,18 @@ public class handler implements Runnable{
 
         }
 
-        myOut.close();
-        try {
-            myIn.close();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-
+        communicator.terminateCommunication();
 
     }
 
 
     private void handleClient(String request)
     {
+        ServiceProvider provider = new ServiceProvider(communicator);
+
         if(request.contains("Check Login"))
         {
-            ValidateUserAccount();
+            provider.validateUserAccount();
         }
 
         else if (request.contains("Add New Account"))
@@ -87,7 +75,8 @@ public class handler implements Runnable{
         {
             //Enter Critical Section
             System.out.println("Buying Product");
-            myOut.println("Buying Product");
+            communicator.sendMSG("Buying Product");
+
             //Exit Critical Section
         }
 
@@ -100,38 +89,19 @@ public class handler implements Runnable{
         {
             System.out.println("Invalid Request");
             System.out.println(request);
-            myOut.println("Invalid");
+            communicator.sendMSG("Invalid");
         }
 
 
     }
-
-
-    private void sendClientMSG(String UserMessage)
-    {
-        myOut.println( UserMessage);
-
-    }
-
-    private String receiveClientMSG()
-    {
-        String Result = null;
-        try {
-            Result = myIn.readLine();
-        } catch (IOException e) {
-            e.printStackTrace();
-
-        }
-        return Result;
-    }
-
-
 
     private Account getUserNameAndPassword()
     {
         System.out.println("Waiting For U and P");
-        String UN = receiveClientMSG();
-        String Pass = receiveClientMSG();
+
+        String UN = communicator.receiveMSG();
+        String Pass = communicator.receiveMSG();
+
         Account AccountToValidate = new Account(UN,Pass);
         return  AccountToValidate;
     }
@@ -146,8 +116,9 @@ public class handler implements Runnable{
         System.out.println("Checking Login for "+String.valueOf(x));
         Account newAccountToValidate = getUserNameAndPassword();
         //For Testing
-        sendClientMSG("You Sent User Name: "+newAccountToValidate.getUserName());
-        sendClientMSG("You Sent Password : "+newAccountToValidate.getPassword());
+
+        communicator.sendMSG("You Sent User Name: "+newAccountToValidate.getUserName());
+        communicator.sendMSG("You Sent Password : "+newAccountToValidate.getPassword());
         //End Of For Testing
 
         //Call Function from Server Market
@@ -155,8 +126,7 @@ public class handler implements Runnable{
         //Send Result
 
         //In Real Case Valid Or Invalid
-        sendClientMSG("Finished Checking Login");
-
+        communicator.sendMSG("Finished Checking Login");
         System.out.println("Finished");
     }
 
@@ -165,7 +135,8 @@ public class handler implements Runnable{
     {
         int x = Server_Market.findClientID(this);
         System.out.println("Adding New Account for "+String.valueOf(x));
-        myOut.println("Adding New Account");
+        communicator.sendMSG("Adding New Account");
+
     }
 
 

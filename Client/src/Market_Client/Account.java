@@ -1,6 +1,6 @@
-package Market_Server;
+package Market_Client;
 
-public class Account{
+public class Account {
     private String UserName ;
     private String Password;
 
@@ -23,7 +23,6 @@ public class Account{
         this.UserName = UserName;
         this.Password = Password;
     }
-
     public String getUserName() {
         return UserName;
     }
@@ -82,14 +81,12 @@ public class Account{
 
     @Override
     public String toString() {
-        return "Account{" +
-                "UserName='" + UserName + '\'' +
-                ", Password='" + Password + '\'' +
-                ", Name='" + Name + '\'' +
-                ", Address='" + Address + '\'' +
-                ", PhoneNumber='" + PhoneNumber + '\'' +
-                ", CreditCardNumber='" + CreditCardNumber + '\'' +
-                ", CashBalance=" + CashBalance +
-                '}';
+        return UserName+"#"+
+                Password+"#"+
+                Name+"#"+
+                Address+"#"+
+                PhoneNumber+"#"+
+                CreditCardNumber+"#"+
+                CashBalance;
     }
 }
