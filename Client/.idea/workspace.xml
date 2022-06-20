@@ -4,7 +4,22 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="04182024-66d3-4ac9-8ca4-a93a9a3e546a" name="Default Changelist" comment="" />
+    <list default="true" id="04182024-66d3-4ac9-8ca4-a93a9a3e546a" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Client/Market_Client/Client_Market.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Client/Market_Client/Client_Market.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Client/Market_Client/Transceiver.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Client/Market_Client/Transceiver.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Market_Client/Client_Market.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Market_Client/Client_Market.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Market_Client/Transceiver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Market_Client/Transceiver.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Server/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Server/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Server/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Server/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Server/out/production/Server/Market_Server/Account.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Server/out/production/Server/Market_Server/Account.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Server/out/production/Server/Market_Server/Communicator.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Server/out/production/Server/Market_Server/Communicator.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Server/out/production/Server/Market_Server/ServiceProvider.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Server/out/production/Server/Market_Server/ServiceProvider.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Server/out/production/Server/Market_Server/Transceiver.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Server/out/production/Server/Market_Server/Transceiver.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Server/out/production/Server/Market_Server/handler.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Server/out/production/Server/Market_Server/handler.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Server/src/Market_Server/Transceiver.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Server/src/Market_Server/Transceiver.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -29,13 +44,14 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "last_opened_file_path": "C:/Users/PC/OneDrive/Documents/GitHub/Market-System-Project-/Client"
-  }
-}]]></component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Server" />
+    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.0" />
+  </component>
   <component name="RecentsManager">
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="Market_Client" />

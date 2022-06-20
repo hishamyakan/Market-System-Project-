@@ -34,7 +34,8 @@ public class Transceiver {
         try {
             Result = myIn.readLine();
         } catch (IOException e) {
-            e.printStackTrace();
+            System.out.println("Client Terminated UnExpectedly");
+            Result = "Quit";
 
         }
         return Result;
