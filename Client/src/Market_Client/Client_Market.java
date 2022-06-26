@@ -14,17 +14,18 @@ public class Client_Market {
     private static final int port = 9090;
     private Communicator communicator;
 
-    private String ContinueReply;
+    private String GUIReply = "NoReply";
+    private String ServerState = "Down";
     private Account acc;
 
 
 
-    Client_Market () {
+    public Client_Market () {
 
     }
 
     public void setContinueReply(String continueReply) {
-        ContinueReply = continueReply;
+        GUIReply = continueReply;
     }
 
 
@@ -62,41 +63,48 @@ public class Client_Market {
         return flag;
     }
 
-    boolean establishCommunication() throws ServerDownException {
+    public String getServerState() {
+        return ServerState;
+    }
+
+    private boolean establishCommunication()  {
         boolean flag = true;
         while (flag) {
             try {
                 communicator = new Communicator(new Transceiver(new Socket(IP, port)));
                 flag = true;
                 System.out.println("Connected To Server\n");
+                this.ServerState = "Up";
+                GUIReply = "NoReply";
                 break;
             } catch (Exception e) {
 
                 System.out.println("The server is down now. Would You Like To Try " +
                         "Again to Establish Communication? Yes/No");
-                throw new ServerDownException();
+
                 //Send Pop Up Message Through GUI
 
-            }
-
-            //Receive reply from GUI
-            finally {
-
-                if (this.ContinueReply.contains("Yes")) {
+                this.ServerState = "Down";
+                while (GUIReply.contains("NoReply"));
+                if (this.GUIReply.contains("Yes")) {
 
                     System.out.println("Trying To Connect to Server...........");
                     flag = true;
                     //Do Nothing
                 } else {
                     flag = false;
+                    GUIReply = "NoReply";
                 }
+
             }
+
+            //Receive reply from GUI
+
         }
 
 
         return flag;
     }
-
 
     public String HandleLoginRequest(String UserName,String Pass)  {
         String reply = null;
@@ -173,7 +181,6 @@ public class Client_Market {
 
     }
 
-
     public Account HandleViewInformation(String UserName) {
 
         Account account = null;
@@ -189,20 +196,40 @@ public class Client_Market {
 
     }
 
-    public String HandleDepositCash(String UserName , String CreditCardNumber, short  Amount) {
-        ServiceProvider sp = new ServiceProvider(this.communicator);
-        return sp.DepositCash(UserName ,CreditCardNumber,Amount);
+    public String HandleDepositCash(String UserName , String CreditCardNumber, double Amount) {
+
+        String reply = null;
+
+        if(this.establishCommunication()) {
+            ServiceProvider sp = new ServiceProvider(this.communicator);
+            reply =sp.DepositCash(UserName, CreditCardNumber, Amount);
+
+        }
+        return reply;
     }
 
-    public ArrayList<Item> HandleSearchForItems()
-    {
-        return null;
+    public ArrayList<Item> HandleSearchForItems(String Category ) {
+        ArrayList<Item> items = null;
+        if(this.establishCommunication()) {
+            String itemName = "none";
+            ServiceProvider sp = new ServiceProvider(this.communicator);
+            items = sp.GetItems(Category, itemName);
+
+        }
+        return items;
+
     }
 
+    public ArrayList<Item> HandleSearchForItems(String Category, String itemName ) {
+        ArrayList<Item> items = null;
+        if(this.establishCommunication()) {
 
+            ServiceProvider sp = new ServiceProvider(this.communicator);
+            items = sp.GetItems(Category, itemName);
 
-
-
+        }
+        return items;
+    }
 
 
 }

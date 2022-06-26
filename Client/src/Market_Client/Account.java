@@ -1,6 +1,8 @@
 package Market_Client;
 
-public class Account {
+import java.io.Serializable;
+
+public class Account implements Serializable {
     private String UserName ;
     private String Password;
 

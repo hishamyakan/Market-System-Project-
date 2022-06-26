@@ -1,20 +1,20 @@
 package Market_Client;
 import java.awt.Image;
+import java.io.Serializable;
 
 
+public class Item implements Serializable {
 
-public class Item {
+    private String Name;
+    private double Price;
+    private String  SerialNumber;
+    private short Quantity;
+    private String description;
+    private Image image;
+    private String numberOfSoldItems;
+    private String category;
 
-    String Name;
-    short Price;
-    String  SerialNumber;
-    short Quantity;
-    String description;
-    Image image;
-    String numberOfSoldItems;
-    String category;
-
-    public Item(String name, short price, String serialNumber, short quantity,
+    public Item(String name, double price, String serialNumber, short quantity,
                 String description, Image image, String numberOfSoldItems, String category) {
         Name = name;
         Price = price;
@@ -39,11 +39,11 @@ public class Item {
         Name = name;
     }
 
-    public short getPrice() {
+    public double getPrice() {
         return Price;
     }
 
-    public void setPrice(short price) {
+    public void setPrice(double price) {
         Price = price;
     }
 

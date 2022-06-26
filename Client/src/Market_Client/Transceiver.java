@@ -1,85 +1,121 @@
+/******************************************************************************
+ *
+ * Module: Transceiver
+ *
+ * File Name: Transceiver.java
+ *
+ * Description: Implementation of the Transceiver Class that is responsible for Socket Communication
+ *
+ * Author : Hussam Wael
+ *******************************************************************************/
+
 package Market_Client;
 
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.PrintWriter;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.net.Socket;
 import java.util.ArrayList;
 
 public class Transceiver {
 
     private Socket Client_To_Handle;
-    private BufferedReader myIn;
-    private PrintWriter myOut;
+    private ObjectOutputStream myOut;
+    private ObjectInputStream myIn;
 
 
+    /*
+     * Description :
+     * Class Constructor.
+     */
     public Transceiver(Socket clientSocket) throws IOException
     {
         this.Client_To_Handle = clientSocket;
-        this.myIn = new BufferedReader(new InputStreamReader(Client_To_Handle.getInputStream()));
-        this.myOut = new PrintWriter(Client_To_Handle.getOutputStream(),true);
+        /*this.myIn = new ObjectInputStream(clientSocket.getInputStream());
+        this.myOut = new ObjectOutputStream(clientSocket.getOutputStream());*/
     }
 
 
-    public void sendMSG(Object obj)
-    {
-        myOut.println(obj.toString());
+
+    /*
+     * Description :
+     * Sends an object over the socket.
+     */
+    public void sendMSG(Object o) throws IOException {
+
+        this.myIn = null;
+
+        this.myOut = new ObjectOutputStream(Client_To_Handle.getOutputStream());
+
+        myOut.writeObject(o);
 
     }
-    public String receiveMSG()
-    {
-        String Result = null;
+
+
+    /*
+     * Description :
+     * Returns an object that is received from the socket.
+     */
+    public Object receiveMSG() throws ClassNotFoundException, IOException {
+
+        this.myOut = null;
+
+        this.myIn = new ObjectInputStream(Client_To_Handle.getInputStream());
+
+
+        Object Result = null;
         try {
-            Result = myIn.readLine();
+            Result = myIn.readObject();
         } catch (IOException e) {
-            //e.printStackTrace();
-            Result = "Server Is Down";
+            System.out.println("Client Terminated UnExpectedly");
+            Result = "Quit";
 
         }
         return Result;
     }
 
 
-    public void sendList(ArrayList<Object> Messages){
 
-        for(Object msg : Messages){
+    /*
+     * Description :
+     * Sends an array list of objects through the socket.
+     */
+    public void sendList(ArrayList<Object> Messages) throws IOException {
 
-            sendMSG(msg.toString());
-
-        }
-
-    }
-
-
-
-
-
-
-    public ArrayList<String> receiveList(int numberOfMessages){
-
-    ArrayList<String> result = new ArrayList<String>();
-
-    for(int i = 0 ; i < numberOfMessages ; i++){
-
-        result.add(receiveMSG());
-
-
-    }
-
-    return result;
-
+        myOut.writeObject(Messages);
 
     }
 
 
+
+
+
+    /*
+     * Description :
+     * Returns an array list of objects received from the socket.
+     */
+    public ArrayList<Object> receiveList() throws IOException, ClassNotFoundException {
+
+        return (ArrayList<Object>)myIn.readObject();
+
+
+
+    }
+
+    /*
+     * Description :
+     * Ends the communication between the client and the server.
+     */
     void terminateCommunication(){
-
-
-        myOut.close();
         try {
-            myIn.close();
-            Client_To_Handle.close();
+            if(myOut != null)
+                myOut.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        try {
+            if(myIn != null)
+                myIn.close();
         } catch (IOException e) {
             e.printStackTrace();
         }
