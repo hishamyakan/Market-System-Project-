@@ -12,6 +12,14 @@ public class Account {
 
     private String CreditCardNumber;
 
+    public Account(String userName, String password, String name, String address, String phoneNumber) {
+        UserName = userName;
+        Password = password;
+        Name = name;
+        Address = address;
+        PhoneNumber = phoneNumber;
+    }
+
     private double CashBalance;
     Account()
     {
