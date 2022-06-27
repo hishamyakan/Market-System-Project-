@@ -5,8 +5,11 @@ public class ServiceProvider
 
     private Communicator communicator;
 
+    private DatabaseManager manager;
+
     public ServiceProvider(Communicator communicator) {
         this.communicator = communicator;
+        manager = new DatabaseManager();
     }
 
     public void setCommunicator(Communicator communicator) {
@@ -17,12 +20,26 @@ public class ServiceProvider
     {
         Account account = communicator.receiveAccount();
 
+
 //        String u = communicator.receiveMSG();
 //        String p = communicator.receiveMSG();
 //
 //        Account account = new Account(u,p);
 
-        String Password = "12346";
+        AccountType type;
+        if(account.getUserName().contains("admin")){
+
+           type = AccountType.ADMIN;
+
+        }
+
+        else{
+
+            type = AccountType.CLIENT;
+
+        }
+
+        String Password = manager.getPassword(account.getUserName() , type);
         //ezai hageb data mn el DB??(username is searched for in database)
         if (Password == null)
         {
@@ -45,11 +62,12 @@ public class ServiceProvider
         Account account = communicator.receiveAccount();
 
         //check if username is repeated or not (from DB)
-        String UserName = "Nadine";
-        if (UserName ==null)
+        String pass = manager.getPassword(account.getUserName() , AccountType.CLIENT);
+
+        if (pass ==null)
         {
             communicator.sendMSG("Account is Created");
-            //and then store it into DB
+            manager.StoreAccount(account);
         }else
         {
             communicator.sendMSG("User Name Already Exists");
@@ -60,11 +78,11 @@ public class ServiceProvider
     {
         String UserName = communicator.receiveMSG();
         //search in db
-        Account account = new Account();
+        Account account = manager.getAccount(UserName);
 
-        account.setName("Hussam");
-        account.setPassword("1245");
-        account.setAddress("Madinty");
+//        account.setName("Hussam");
+//        account.setPassword("1245");
+//        account.setAddress("Madinty");
 
         communicator.sendAccount(account);
     }
@@ -75,36 +93,44 @@ public class ServiceProvider
         String ItemName = communicator.receiveMSG();
 
         //search for item in Database and return the no. of items remaining and then
-        ArrayList<Item> I = new ArrayList<>();
+        ArrayList<Item> ItemList = new ArrayList<>();
 
-        Item myItem = new Item();
-        myItem.setName("Playstation");
-        I.add(myItem);
-
-        myItem = new Item();
-        myItem.setName("T shirt");
-        I.add(myItem);
-
-
-        myItem = new Item();
-        myItem.setName("Laptop");
-        I.add(myItem);
-
-
-
+//        Item myItem = new Item();
+//        myItem.setName("Playstation");
+//        ItemList.add(myItem);
+//
+//        myItem = new Item();
+//        myItem.setName("T shirt");
+//        ItemList.add(myItem);
+//
+//
+//        myItem = new Item();
+//        myItem.setName("Laptop");
+//        ItemList.add(myItem);
 
 
         if (Category.equals("all"))
         {
-            myItem.setName("All Items");
-            I.add(myItem);
+//            myItem.setName("All Items");
+//            ItemList.add(myItem);
+
+                ItemList = manager.getAllItems();
+
         }
-        if(ItemName.equals("none") /*|| *doesn't exist in DB*/)
+
+        else if(ItemName.equals("none") /*|| *doesn't exist in DB*/)
         {
-            myItem.setName("All same category items");
-            I.add(myItem);
+//            myItem.setName("All same category items");
+//            ItemList.add(myItem);
+
+            ItemList = manager.getAllItems(Category);
+
         }
-        communicator.sendItems(I);
+
+        else{
+            ItemList = manager.getAllItems(Category , ItemName);
+        }
+        communicator.sendItems(ItemList);
     }
 
 
@@ -113,13 +139,16 @@ public class ServiceProvider
         String UserName = communicator.receiveMSG();
         String CreditCardNumber= communicator.receiveMSG();
         double DepositedAmount = communicator.receiveDouble(); //to be deposited
-        if(UserName == null)
+        if(manager.getPassword(UserName,AccountType.CLIENT) == null)
         {
             communicator.sendMSG("User Name Does not exists");
         }
         //access DB
-        double CashBalance =0.0; //eli f elcredit card
+        double CashBalance = manager.getCashBalance(UserName); //eli f elcredit card
+
         CashBalance+=DepositedAmount;
+
+        manager.storeCashBalance(UserName,CashBalance);
 
         communicator.sendMSG("Deposit Is Stored");
     }
