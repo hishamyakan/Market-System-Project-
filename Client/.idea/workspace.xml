@@ -5,20 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="04182024-66d3-4ac9-8ca4-a93a9a3e546a" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/GUI_Stub.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Client/Market_Client/Client_Market.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Client/Market_Client/Client_Market.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Client/Market_Client/Transceiver.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Client/Market_Client/Transceiver.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Market_Client/Account.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Market_Client/Account.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Market_Client/Cart.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Market_Client/Cart.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Market_Client/Client_Market.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Market_Client/Client_Market.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Market_Client/Communicator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Market_Client/Communicator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Market_Client/Item.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Market_Client/Item.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Market_Client/ServiceProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Market_Client/ServiceProvider.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Market_Client/Transceiver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Market_Client/Transceiver.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Server/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Server/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Server/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Server/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Server/out/production/Server/Market_Server/Account.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Server/out/production/Server/Market_Server/Account.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Server/out/production/Server/Market_Server/Communicator.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Server/out/production/Server/Market_Server/Communicator.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Server/out/production/Server/Market_Server/ServiceProvider.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Server/out/production/Server/Market_Server/ServiceProvider.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Server/out/production/Server/Market_Server/Transceiver.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Server/out/production/Server/Market_Server/Transceiver.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Server/out/production/Server/Market_Server/handler.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Server/out/production/Server/Market_Server/handler.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Server/src/Market_Server/Transceiver.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Server/src/Market_Server/Transceiver.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -87,5 +82,28 @@
       <updated>1655656716609</updated>
     </task>
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/Market_Client/Client_Market.java</url>
+          <line>154</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

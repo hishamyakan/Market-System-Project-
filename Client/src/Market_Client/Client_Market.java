@@ -1,123 +1,33 @@
 package Market_Client;
 
-
-
 import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
 import java.net.Socket;
+import java.util.ArrayList;
 
+import SpecialException.ServerDownException;
 
 
 public class Client_Market {
 
     private static final String IP= "127.0.0.1";
     private static final int port = 9090;
-
     private Communicator communicator;
 
-    Client_Market ()
-    {
-        try  {
-
-            BufferedReader ClientInput = new BufferedReader(new InputStreamReader(System.in));
-            boolean flag = establishCommunication(ClientInput);
-
-
-            while(flag)
-            {
-                //GUI Waiting For Request
-                System.out.println("Please Enter a Request");
-
-                //Blocked On GUI
-                String Command = ClientInput.readLine();
-                //Got Message From GUI
-
-                communicator.sendMSG(Command);
-
-                boolean QuitFlag = handleGUI(Command,ClientInput);
-
-                if(Command.equals("Quit"))
-                {
-                    break;
-                }
-                String ServerReply = communicator.receiveMSG();
-
-                if(ServerReply.contains("Server Is Down"))
-                {
-                    flag = establishCommunication(ClientInput);
-
-                }
-                else
-                {
-                    System.out.println(ServerReply);
-                }
+    private String GUIReply = "NoReply";
+    private String ServerState = "Down";
+    private Account acc;
 
 
 
-
-
-            }
-
-            System.out.println("Quitting");
-
-            /*mySocket.close();*/
-            try {
-                communicator.terminateCommunication();
-            }
-            catch (NullPointerException e)
-            {
-                //e.printStackTrace();
-                System.out.println("Aborting");
-            }
-
-
-
-
-        } catch (IOException e) {
-            e.printStackTrace();
-            //Send GUI A Message That the Server Is Down And We Can't Establish Connection
-            //We Will Ask The User If He Wants to Continue
-            //Must Get Handled In the Main Of the Program
-            System.out.println("Server Is Already Down Try Again Later");
-        }
-
+    public Client_Market () {
 
     }
 
-    boolean handleGUI(String Command,BufferedReader ClientInput) throws IOException {
-        boolean ServerDown = false;
-        if(Command.contains("Check Login"))
-        {
-            System.out.println("Please enter U AND P");
-            //(From GUI)
-            String UserName = ClientInput.readLine();
-            String Pass = ClientInput.readLine();
-            //End of (From GUI)
-
-            communicator.sendAccount(new Account(UserName,Pass));
-
-
-
-
-            //For Testing
-
-            //System.out.println( serverTransceiver.receiveMSG() );
-            // System.out.println( ServerCommunicator.receiveMSG() );
-
-            //End of For Testing
-
-
-
-        }
-
-        else
-        {
-
-        }
-            return ServerDown;
-
+    public void setContinueReply(String continueReply) {
+        GUIReply = continueReply;
     }
+
 
     boolean establishCommunication(BufferedReader ClientInput) throws IOException {
         boolean flag = true;
@@ -132,8 +42,10 @@ public class Client_Market {
             catch (Exception e)
             {
                 //Send Message Through GUI
-                System.out.println("The server is down now. Would You Like To Try Again to Establish Communication? " +
-                        "Yes/No");
+                System.out.println("The server is down now. Would You Like To Try " +
+                        "Again to Establish Communication? Yes/No");
+
+                //Receive reply from GUI
                 String ReplyOnServerDown = ClientInput.readLine();
                 if(ReplyOnServerDown.contains("Yes"))
                 {
@@ -150,41 +62,174 @@ public class Client_Market {
 
         return flag;
     }
-//
-//    boolean ServerIsDownHandling(String ServerReply)
-//    {
-//        Boolean QuitProgram = false;
-//        if(ServerReply.contains("Server Is Down"))
-//        {
-//
-//        }
-//
-//    }
+
+    public String getServerState() {
+        return ServerState;
+    }
+
+    private boolean establishCommunication()  {
+        boolean flag = true;
+        while (flag) {
+            try {
+                communicator = new Communicator(new Transceiver(new Socket(IP, port)));
+                flag = true;
+                System.out.println("Connected To Server\n");
+                this.ServerState = "Up";
+                GUIReply = "NoReply";
+                break;
+            } catch (Exception e) {
+
+                System.out.println("The server is down now. Would You Like To Try " +
+                        "Again to Establish Communication? Yes/No");
+
+                //Send Pop Up Message Through GUI
+
+                this.ServerState = "Down";
+                while (GUIReply.contains("NoReply"));
+                if (this.GUIReply.contains("Yes")) {
+
+                    System.out.println("Trying To Connect to Server...........");
+                    flag = true;
+                    //Do Nothing
+                } else {
+                    flag = false;
+                    GUIReply = "NoReply";
+                }
+
+            }
+
+            //Receive reply from GUI
+
+        }
 
 
-    public String HandleLoginRequest(BufferedReader ClientInput) throws IOException
-    {
-        System.out.println("Please enter U AND P");
-        //(From GUI)
-        String UserName = ClientInput.readLine();
-        String Pass = ClientInput.readLine();
-        //End of (From GUI)
+        return flag;
+    }
 
-        communicator.sendAccount(new Account(UserName,Pass));
-return null;
+    public String HandleLoginRequest(String UserName,String Pass)  {
+        String reply = null;
+        if(this.establishCommunication())
+        {
+
+            ServiceProvider sp = new ServiceProvider(this.communicator);
+            String ServerReply =  sp.verifyAccount(new Account(UserName,Pass));
+            if (ServerReply.contains("Invalid Username"))
+            {
+                //Display Message To GUI
+                System.out.println("User Is Not Registered in the Systems");
+                reply = "Invalid User Name";
+            }
+            else if(ServerReply.contains("Access Granted"))
+            {
+                // Open New Window
+                System.out.println("Open New Window");
+                reply = "Access Granted";
+            }
+            else if(ServerReply.contains("Invalid Password"))
+            {
+                //Send Invalid Password Message To GUI
+                System.out.println("Invalid Password");
+                reply = "Invalid Password";
+            }
+
+            else
+            {
+                System.out.println("Error Find the error");
+                try {
+                    throw new Exception();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+
+        }
+
+        return reply;
+    }
+
+    public String HandleCreateAccount(String UserName,String Pass,String Name,
+                                      String Address,String PhoneNumber) {
+
+        String reply = null;
+
+        if(this.establishCommunication()) {
+            Account newAcc = new Account(UserName, Pass, Name,
+                    Address, PhoneNumber);
+
+            ServiceProvider sp = new ServiceProvider(this.communicator);
+            String ServerReply = sp.CreateNewAccount(newAcc);
+
+            if (ServerReply.contains("User Name Already Exists")) {
+                //Display Message To GUI
+                System.out.println("User Name Already Exists");
+                reply = "User Name Already Exists";
+            } else if (ServerReply.contains("Account Is Created")) {
+                // Open New Window
+                System.out.println("Account Is Created");
+                reply = "Account Is Created";
+            } else {
+                System.out.println("Error Find the error");
+                try {
+                    throw new Exception();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+
+        return reply;
 
     }
 
+    public Account HandleViewInformation(String UserName) {
 
+        Account account = null;
 
-    public static void main (String[] args)
-    {
-            Client_Market  c = new Client_Market ();
+        if(this.establishCommunication()) {
 
+            ServiceProvider sp = new ServiceProvider(this.communicator);
+            account = sp.ViewInformation(UserName);
 
+        }
+
+        return  account;
 
     }
 
+    public String HandleDepositCash(String UserName , String CreditCardNumber, double Amount) {
+
+        String reply = null;
+
+        if(this.establishCommunication()) {
+            ServiceProvider sp = new ServiceProvider(this.communicator);
+            reply =sp.DepositCash(UserName, CreditCardNumber, Amount);
+
+        }
+        return reply;
+    }
+
+    public ArrayList<Item> HandleSearchForItems(String Category ) {
+        ArrayList<Item> items = null;
+        if(this.establishCommunication()) {
+            String itemName = "none";
+            ServiceProvider sp = new ServiceProvider(this.communicator);
+            items = sp.GetItems(Category, itemName);
+
+        }
+        return items;
+
+    }
+
+    public ArrayList<Item> HandleSearchForItems(String Category, String itemName ) {
+        ArrayList<Item> items = null;
+        if(this.establishCommunication()) {
+
+            ServiceProvider sp = new ServiceProvider(this.communicator);
+            items = sp.GetItems(Category, itemName);
+
+        }
+        return items;
+    }
 
 
 }
