@@ -1,5 +1,5 @@
 import java.util.Scanner;
-import Market_Client.*;
+//import Market_Client.*;
 
 public class GUI_Stub {
 
@@ -9,9 +9,11 @@ public class GUI_Stub {
         boolean flag = true;
         boolean loggedIn = false;
 
+        Scanner sc = new Scanner(System.in);
+        Scanner s = sc;
         while (flag) {
             if (loggedIn) {
-                Scanner sc = new Scanner(System.in);
+
                 System.out.println("****************Welcome*****************");
                 System.out.println("\n");
                 System.out.println("1. View Information");
@@ -40,7 +42,6 @@ public class GUI_Stub {
 
             } 
             else {
-                Scanner s = new Scanner(System.in);
                 System.out.println("****************Welcome*****************");
                 System.out.println("\n");
                 System.out.println("1. Login");
@@ -51,13 +52,14 @@ public class GUI_Stub {
 
                 if(r == 1) {
 
-                    System.out.println("Please enter User Name");
+                    //System.out.println("Please enter User Name and Password");
 
-                    String UN = s.nextLine();
-                    System.out.println("Please enter Password");
-                    String Pass = s.nextLine();
+                    String UN = "Hussam";
+                    //System.out.println("Please enter Password");
+                    String Pass = "12346";
 
                     Client_Market c = new Client_Market();
+
                     String Reply = c.HandleLoginRequest(UN,Pass);
 
                     if(Reply.contains("Invalid User Name")){
@@ -78,19 +80,19 @@ public class GUI_Stub {
 
                 else if (r == 2){
                     System.out.println("Please enter User Name");
-                    String UN = s.nextLine();
+                    String UN = "A";
 
                     System.out.println("Please enter Name");
-                    String Name = s.nextLine();
+                    String Name = "B";
 
                     System.out.println("Please enter Password");
-                    String Pass = s.nextLine();
+                    String Pass = "C";
 
                     System.out.println("Please enter Address");
-                    String Add = s.nextLine();
+                    String Add = "D";
 
                     System.out.println("Please enter Phone");
-                    String Phone = s.nextLine();
+                    String Phone = "E";
 
                     Client_Market c = new Client_Market();
                    String res =  c.HandleCreateAccount(UN,Pass,Name,Add,Phone);

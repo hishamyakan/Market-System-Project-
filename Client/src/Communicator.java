@@ -9,7 +9,7 @@
  *
  * Author : Hussam Wael
  *******************************************************************************/
-package Market_Client;
+
 
 import java.io.IOException;
 import java.net.Socket;
@@ -99,6 +99,9 @@ public class Communicator {
     }
 
 
+    public void sendDouble(double value){
+        sendObject(new Double(value));
+    }
 
     /******************************************************************************
      Receiving Methods
@@ -142,6 +145,21 @@ public class Communicator {
         }
     }
 
+
+    public double receiveDouble(){
+
+        double result = 0.0;
+        try {
+            result =  (Double)myTransceiver.receiveMSG();
+
+
+        } catch (ClassNotFoundException e) {
+            throw new RuntimeException(e);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        return result;
+    }
 
     /*
      * Description :

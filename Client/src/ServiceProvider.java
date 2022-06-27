@@ -1,5 +1,3 @@
-package Market_Client;
-
 import java.util.ArrayList;
 
 public  class ServiceProvider {
@@ -18,7 +16,14 @@ public  class ServiceProvider {
     public String verifyAccount(Account acc){
 
         communicator.sendAccount(acc);
-        return communicator.receiveMSG();
+        //communicator.sendMSG(acc.getUserName());
+        //communicator.sendMSG(acc.getPassword());
+        System.out.println("Account Sent");
+        String result = communicator.receiveMSG();
+        System.out.println("Message recieved = "+result);
+        communicator.sendMSG("Quit");
+        communicator.terminateCommunication();
+        return result;
     }
 
     /*Function Name: Create New Account
@@ -28,27 +33,39 @@ public  class ServiceProvider {
     public String CreateNewAccount(Account acc){
 
         communicator.sendAccount(acc);
-        return communicator.receiveMSG();
+        String result = communicator.receiveMSG();
+        communicator.sendMSG("Quit");
+        communicator.terminateCommunication();
+        return result;
     }
 
     public Account ViewInformation(String UserName) {
         communicator.sendMSG(UserName);
-        return communicator.receiveAccount() ;
+        Account result = communicator.receiveAccount();
+        communicator.sendMSG("Quit");
+        communicator.terminateCommunication();
+        return result;
 
     }
 
     public String DepositCash(String UserName , String CreditCardNumber, double  Amount) {
         communicator.sendMSG(UserName);
         communicator.sendMSG(CreditCardNumber);
-        //communicator.sendMSG();
-        return communicator.receiveMSG();
+        communicator.sendDouble(Amount);
+        String result = communicator.receiveMSG();
+        communicator.sendMSG("Quit");
+        communicator.terminateCommunication();
+        return result;
     }
 
     public ArrayList<Item> GetItems(String Category, String itemName ){
 
         communicator.sendMSG(Category);
         communicator.sendMSG(itemName);
-        return communicator.receiveItems();
+        ArrayList<Item> result = communicator.receiveItems();
+        communicator.sendMSG("Quit");
+        communicator.terminateCommunication();
+        return result;
 
 
     }

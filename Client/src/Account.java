@@ -1,5 +1,3 @@
-package Market_Client;
-
 import java.io.Serializable;
 
 public class Account implements Serializable {
@@ -13,14 +11,6 @@ public class Account implements Serializable {
     private String PhoneNumber ;
 
     private String CreditCardNumber;
-
-    public Account(String userName, String password, String name, String address, String phoneNumber) {
-        UserName = userName;
-        Password = password;
-        Name = name;
-        Address = address;
-        PhoneNumber = phoneNumber;
-    }
 
     private double CashBalance;
     Account()
