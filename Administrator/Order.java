@@ -71,6 +71,7 @@ public class Order implements Serializable
         this.paidAmount = paidAmount;
     }
     
+    
     public static ArrayList<Order> Order_report() throws InstantiationException, IllegalAccessException, ClassNotFoundException, SQLException
     {
     	 connectDB();
@@ -95,6 +96,30 @@ public class Order implements Serializable
 		}
     
     
+    public static ArrayList<Order> Order_report(String date) throws InstantiationException, IllegalAccessException, ClassNotFoundException, SQLException
+    {
+    	 connectDB();
+		 
+		 PreparedStatement ps = connection.prepareStatement("select *\r\n" + "from `e_commerce__`.`order_`"+"where Order_Date Like '____-01-__'");
+		 
+	        ResultSet rs = ps.executeQuery();
+	        
+	        ArrayList<Order> a = new ArrayList<Order>();
+	        
+	        while(rs.next()) {
+	        	Order o = new Order();
+	        	o.setOrderId(rs.getInt(1));
+	        	o.setOrderDate(rs.getDate(2));
+	        	o.setDeliveryDate(rs.getDate(3));
+	        	o.setPaidAmount(rs.getDouble(4));
+	        	o.setUser_name(rs.getString(5));
+	        	a.add(o);
+	        }
+	        
+	        return a;
+		}
+		
+		
     public static void connectDB() throws InstantiationException, IllegalAccessException, ClassNotFoundException, SQLException
     {
 		String databaseName = "";
@@ -110,12 +135,5 @@ public class Order implements Serializable
 	    connection =DriverManager.getConnection(url, username, password);
 		 
 	}
-    
-    
-    
-    
-    
-    
-    
-    
+	
 }
