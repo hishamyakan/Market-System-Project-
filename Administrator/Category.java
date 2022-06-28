@@ -80,6 +80,27 @@ public class Category implements Serializable {
 	        
 	        return a;
 		}
+	public static ArrayList<Category> Category_report(String category) throws InstantiationException, IllegalAccessException, ClassNotFoundException, SQLException
+	{
+		 connectDB();
+		 
+		 PreparedStatement ps = connection.prepareStatement("select Category,sum(Quantity),sum(No_of_sold_items)\r\n"
+		 		+ "from `e_commerce__`.`Item`\r\n" +"where Category = '"+category+"'"+ "group by Category\r\n"+ "");
+		 
+	        ResultSet rs = ps.executeQuery();
+	        
+	        ArrayList<Category> a = new ArrayList<Category>();
+	        
+	        while(rs.next()) {
+	        	Category c = new Category();
+	        	c.setName(rs.getString(1));
+	        	c.setQuantity(rs.getInt(2));
+	        	c.setNo_of_sold_items(rs.getInt(3));
+	        	a.add(c);
+	        }
+	        
+	        return a;
+		}
 	
 	
 	
