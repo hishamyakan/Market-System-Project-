@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="281.0" prefWidth="457.0" style="-fx-background-color: white;" stylesheets="@style.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="AddDeposite_Controller">
+   <children>
+      <Label layoutX="48.0" layoutY="55.0" prefHeight="18.0" prefWidth="122.0" text="Password" />
+      <Label layoutX="48.0" layoutY="92.0" prefHeight="18.0" prefWidth="122.0" text="Credit-card number" />
+      <Label layoutX="48.0" layoutY="135.0" prefHeight="18.0" prefWidth="122.0" text="Money to add" />
+      <PasswordField fx:id="PASSWORD_INPUT" layoutX="194.0" layoutY="51.0" />
+      <TextField fx:id="CREDIT_CARD_NUM_INPUT" layoutX="195.0" layoutY="89.0" />
+      <TextField fx:id="MONEY_INPUT" layoutX="196.0" layoutY="132.0" />
+      <Label fx:id="pass_check" layoutX="196.0" layoutY="165.0" prefHeight="18.0" prefWidth="183.0" textFill="RED" />
+      <Button fx:id="ADD_DEPOSITE" layoutX="48.0" layoutY="200.0" mnemonicParsing="false" onAction="#Add_deposite_on_click" prefHeight="38.0" prefWidth="150.0" style="-fx-background-color: #41a646;" stylesheets="@searchButton.css" text="ok" textFill="WHITE">
+         <font>
+            <Font name="Berlin Sans FB Bold" size="18.0" />
+         </font>
+      </Button>
+      <Button fx:id="BACK" layoutX="218.0" layoutY="200.0" mnemonicParsing="false" onAction="#back_to_user_profile" prefHeight="38.0" prefWidth="150.0" style="-fx-background-color: gray;" text="back" textFill="WHITE">
+         <font>
+            <Font name="Berlin Sans FB Bold" size="18.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>

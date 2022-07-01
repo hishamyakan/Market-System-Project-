@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="264.0" prefWidth="250.0" style="-fx-background-color: transparent;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="serverFallControler">
+   <children>
+      <Label fx:id="LABEL" layoutX="71.0" layoutY="32.0" prefHeight="18.0" prefWidth="252.0" text="try to connect to Server...">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="213.0" fitWidth="294.0" layoutX="71.0" layoutY="26.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@assets/cartoon-snail-loading-loading-gif-animation_2734139.gif" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>

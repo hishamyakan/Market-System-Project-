@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="600.0" prefWidth="1000.0" style="-fx-background-color: white;" stylesheets="@style.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UserProfileController">
+   <children>
+      <VBox layoutY="33.0" prefHeight="571.0" prefWidth="140.0" style="-fx-background-color: #41a646;">
+         <children>
+            <Pane prefHeight="54.0" prefWidth="126.0" style="-fx-background-color: white;">
+               <VBox.margin>
+                  <Insets top="40.0" />
+               </VBox.margin>
+               <children>
+                  <Label layoutX="23.0" layoutY="14.0" prefHeight="27.0" prefWidth="105.0" text=" User Profile" textAlignment="JUSTIFY" textFill="#41a646">
+                     <font>
+                        <Font name="Berlin Sans FB Demi Bold" size="18.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+            <Button fx:id="HOMEPAGE" layoutX="10.0" layoutY="129.0" mnemonicParsing="false" onAction="#homepageonclick" prefHeight="50.0" prefWidth="140.0" style="-fx-background-color: #41a646;" text="Home Page" textFill="WHITE">
+               <font>
+                  <Font name="Berlin Sans FB Demi Bold" size="14.0" />
+               </font>
+               <VBox.margin>
+                  <Insets top="40.0" />
+               </VBox.margin>
+               <graphic>
+                  <ImageView fitHeight="35.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@assets/white-home-icon-no-background-11563079642bhowuqojo2.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button fx:id="USERPROFILE" mnemonicParsing="false" onAction="#userprofileonclick" prefHeight="50.0" prefWidth="140.0" style="-fx-background-color: #2d8c30;" text=" User Profile" textFill="WHITE">
+               <VBox.margin>
+                  <Insets top="2.0" />
+               </VBox.margin>
+               <font>
+                  <Font name="Berlin Sans FB Demi Bold" size="14.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="35.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@assets/profile-icon-white-22.jpg" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button fx:id="VIEWCART" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#viewcartonclick" prefHeight="50.0" prefWidth="140.0" style="-fx-background-color: #41a646;" text="  View Cart" textFill="WHITE">
+               <font>
+                  <Font name="Berlin Sans FB Demi Bold" size="14.0" />
+               </font>
+               <VBox.margin>
+                  <Insets top="2.0" />
+               </VBox.margin>
+               <graphic>
+                  <ImageView fitHeight="35.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@assets/white-shopping-cart-icon-png-19.jpg" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button fx:id="HISTORY" mnemonicParsing="false" onAction="#view_history_page" prefHeight="50.0" prefWidth="140.0" style="-fx-background-color: #41a646;" text="    History " textFill="WHITE">
+               <font>
+                  <Font name="Berlin Sans FB Demi Bold" size="14.0" />
+               </font>
+               <graphic>
+                  <ImageView fx:id="LBLHISTORY" fitHeight="44.0" fitWidth="42.0" pickOnBounds="true" preserveRatio="true" style="-fx-image-background: white;">
+                     <image>
+                        <Image url="@assets/history.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button fx:id="LOGOUT" layoutX="10.0" layoutY="50.0" mnemonicParsing="false" onAction="#userlogout" prefHeight="50.0" prefWidth="140.0" style="-fx-background-color: #41a646;" text="      Log Out" textFill="WHITE">
+               <font>
+                  <Font name="Berlin Sans FB Demi Bold" size="14.0" />
+               </font>
+               <VBox.margin>
+                  <Insets top="2.0" />
+               </VBox.margin>
+               <graphic>
+                  <ImageView fitHeight="35.0" fitWidth="40.0" nodeOrientation="RIGHT_TO_LEFT" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@assets/1024px-OOjs_UI_icon_logOut-ltr-invert.svg.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+         </children>
+      </VBox>
+      <Label prefHeight="33.0" prefWidth="1000.0" style="-fx-background-color: #41a646;" text=" Market Place System" textFill="WHITE">
+         <font>
+            <Font name="Berlin Sans FB Bold" size="18.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="196.0" fitWidth="173.0" layoutX="483.0" layoutY="58.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="483.0" AnchorPane.rightAnchor="344.0">
+         <image>
+            <Image url="@assets/greendefaultprofile.png" />
+         </image>
+      </ImageView>
+      <Label fx:id="LBLNAME" alignment="CENTER" layoutX="457.0" layoutY="245.0" prefHeight="41.0" prefWidth="235.0" textAlignment="CENTER">
+         <font>
+            <Font name="Calibri Bold" size="24.0" />
+         </font>
+      </Label>
+      <Label layoutX="198.0" layoutY="341.0" prefHeight="27.0" prefWidth="120.0" text="Username:">
+         <font>
+            <Font name="Calibri Bold" size="18.0" />
+         </font>
+      </Label>
+      <Label fx:id="LBLUSERNAME" layoutX="346.0" layoutY="343.0" prefHeight="27.0" prefWidth="240.0">
+         <font>
+            <Font name="Calibri" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="198.0" layoutY="461.0" prefHeight="27.0" prefWidth="120.0" text="Address:">
+         <font>
+            <Font name="Calibri Bold" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="198.0" layoutY="401.0" prefHeight="27.0" prefWidth="120.0" text="Phone Number:">
+         <font>
+            <Font name="Calibri Bold" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="198.0" layoutY="521.0" prefHeight="27.0" prefWidth="120.0" text="Cash balance:">
+         <font>
+            <Font name="Calibri Bold" size="18.0" />
+         </font>
+      </Label>
+      <Label fx:id="LBLPHONENUMBER" layoutX="346.0" layoutY="401.0" prefHeight="27.0" prefWidth="240.0">
+         <font>
+            <Font name="Calibri" size="18.0" />
+         </font>
+      </Label>
+      <Label fx:id="LBLADDRESS" layoutX="346.0" layoutY="461.0" prefHeight="27.0" prefWidth="240.0">
+         <font>
+            <Font name="Calibri" size="18.0" />
+         </font>
+      </Label>
+      <Label fx:id="LBLCASHBALANCE" layoutX="346.0" layoutY="521.0" prefHeight="27.0" prefWidth="240.0">
+         <font>
+            <Font name="Calibri" size="18.0" />
+         </font>
+      </Label>
+      <Button fx:id="ADD_DEPOSITE" layoutX="671.0" layoutY="515.0" mnemonicParsing="false" onAction="#Add_deposite_on_click" prefHeight="35.0" prefWidth="231.0" style="-fx-background-color: #41a646;" text="Add Deposit" textFill="WHITE">
+         <font>
+            <Font name="Berlin Sans FB Bold" size="18.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>
