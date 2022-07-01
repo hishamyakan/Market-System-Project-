@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="600.0" prefWidth="1000.0" style="-fx-background-color: white;" stylesheets="@style.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ViewCartController">
+   <children>
+      <Pane layoutX="152.0" layoutY="34.0" prefHeight="577.0" prefWidth="860.0">
+         <children>
+            <TableView fx:id="TABLEVIEW2" layoutX="-4.0" layoutY="70.0" prefHeight="450.0" prefWidth="838.0">
+              <columns>
+                <TableColumn fx:id="ITEM2" prefWidth="132.0" text="Item" />
+                <TableColumn fx:id="PRICE2" prefWidth="72.79998779296875" text="Price" />
+                  <TableColumn fx:id="CATEGORY2" prefWidth="90.4000244140625" text="Category" />
+                  <TableColumn fx:id="DESCRIPTION2" prefWidth="307.199951171875" text="Description" />
+                  <TableColumn fx:id="QUANTITY2" prefWidth="134.40008544921875" text="Quantity" />
+                  <TableColumn fx:id="REMOVE" prefWidth="101.5999755859375" text="Remove" />
+              </columns>
+            </TableView>
+            <Label layoutX="499.0" layoutY="17.0" prefHeight="27.0" prefWidth="119.0" text="Total Money: ">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Label>
+            <Button fx:id="PURCHASE_BUTTON" layoutX="741.0" layoutY="15.0" mnemonicParsing="false" onAction="#PurchaseClicked" prefHeight="28.0" prefWidth="92.0" style="-fx-background-color: #41a646; -fx-text-fill: white;" text="Purchase">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Button>
+            <Label fx:id="MONEY_LABEL" layoutX="618.0" layoutY="17.0" prefHeight="17.0" prefWidth="85.0">
+               <font>
+                  <Font size="18.0" />
+               </font></Label>
+         </children>
+      </Pane>
+      <VBox layoutY="33.0" prefHeight="598.0" prefWidth="140.0" style="-fx-background-color: #41a646;">
+         <children>
+            <Pane prefHeight="54.0" prefWidth="126.0" style="-fx-background-color: white;">
+               <VBox.margin>
+                  <Insets top="40.0" />
+               </VBox.margin>
+               <children>
+                  <Label layoutX="22.0" layoutY="14.0" prefHeight="27.0" prefWidth="92.0" text="  View Cart" textAlignment="JUSTIFY" textFill="#41a646">
+                     <font>
+                        <Font name="Berlin Sans FB Demi Bold" size="18.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+            <Button fx:id="HOMEPAGE" mnemonicParsing="false" onAction="#homepageonclick" prefHeight="50.0" prefWidth="140.0" style="-fx-background-color: #41a646;" text="Home Page" textFill="WHITE">
+               <font>
+                  <Font name="Berlin Sans FB Demi Bold" size="14.0" />
+               </font>
+               <VBox.margin>
+                  <Insets top="40.0" />
+               </VBox.margin>
+               <graphic>
+                  <ImageView fitHeight="35.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@assets/white-home-icon-no-background-11563079642bhowuqojo2.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button fx:id="USERPROFILE" mnemonicParsing="false" onAction="#userprofileonclick" prefHeight="50.0" prefWidth="140.0" style="-fx-background-color: #41a646;" text=" User Profile" textFill="WHITE">
+               <VBox.margin>
+                  <Insets top="2.0" />
+               </VBox.margin>
+               <font>
+                  <Font name="Berlin Sans FB Demi Bold" size="14.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="35.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@assets/profile-icon-white-22.jpg" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button fx:id="VIEWCART" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#viewcartonclick" prefHeight="50.0" prefWidth="140.0" style="-fx-background-color: #2d8c30;" text="  View Cart" textFill="WHITE">
+               <font>
+                  <Font name="Berlin Sans FB Demi Bold" size="14.0" />
+               </font>
+               <VBox.margin>
+                  <Insets top="2.0" />
+               </VBox.margin>
+               <graphic>
+                  <ImageView fitHeight="35.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@assets/white-shopping-cart-icon-png-19.jpg" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button fx:id="HISTORY" mnemonicParsing="false" onAction="#view_history_page" prefHeight="50.0" prefWidth="140.0" style="-fx-background-color: #41a646;" text="    History " textFill="WHITE">
+               <font>
+                  <Font name="Berlin Sans FB Demi Bold" size="14.0" />
+               </font>
+               <graphic>
+                  <ImageView fx:id="LBLHISTORY" fitHeight="44.0" fitWidth="42.0" pickOnBounds="true" preserveRatio="true" style="-fx-image-background: white;">
+                     <image>
+                        <Image url="@assets/history.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button fx:id="LOGOUT" layoutX="10.0" layoutY="50.0" mnemonicParsing="false" onAction="#userlogout" prefHeight="50.0" prefWidth="140.0" style="-fx-background-color: #41a646;" text="      Log Out" textFill="WHITE">
+               <font>
+                  <Font name="Berlin Sans FB Demi Bold" size="14.0" />
+               </font>
+               <VBox.margin>
+                  <Insets top="2.0" />
+               </VBox.margin>
+               <graphic>
+                  <ImageView fitHeight="35.0" fitWidth="40.0" nodeOrientation="RIGHT_TO_LEFT" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@assets/1024px-OOjs_UI_icon_logOut-ltr-invert.svg.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+         </children>
+      </VBox>
+      <Label prefHeight="33.0" prefWidth="1018.0" style="-fx-background-color: #41a646;" text=" Market Place System" textFill="WHITE">
+         <font>
+            <Font name="Berlin Sans FB Bold" size="18.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

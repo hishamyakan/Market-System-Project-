@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="319.0" prefWidth="586.0" style="-fx-background-color: white;" stylesheets="@style.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="PurchaseController">
+   <children>
+      <RadioButton fx:id="COD_RADIO" layoutX="193.0" layoutY="159.0" mnemonicParsing="false" selected="true" text="Cash on delivery">
+         <toggleGroup>
+            <ToggleGroup fx:id="method" />
+         </toggleGroup>
+         <font>
+            <Font size="14.0" />
+         </font>
+      </RadioButton>
+      <RadioButton fx:id="CASH_BALACE_RADIO" layoutX="365.0" layoutY="159.0" mnemonicParsing="false" text="cash balance" toggleGroup="$method">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </RadioButton>
+      <Label layoutX="35.0" layoutY="84.0" prefHeight="18.0" prefWidth="114.0" text="Payment Method :">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Button fx:id="CONFIRM" layoutX="194.0" layoutY="231.0" mnemonicParsing="false" onAction="#on_confirm_click" prefHeight="38.0" prefWidth="125.0" style="-fx-background-color: #41a646;" stylesheets="@searchButton.css" text="Confirm" textFill="WHITE">
+         <font>
+            <Font name="Berlin Sans FB Bold" size="18.0" />
+         </font>
+      </Button>
+      <Button fx:id="BACK" layoutX="344.0" layoutY="231.0" mnemonicParsing="false" onAction="#back_on_click" prefHeight="38.0" prefWidth="125.0" style="-fx-background-color: gray;" text="Back" textFill="WHITE">
+         <font>
+            <Font name="Berlin Sans FB Bold" size="18.0" />
+         </font>
+      </Button>
+      <Label layoutX="35.0" layoutY="30.0" prefHeight="18.0" prefWidth="138.0" text="Total money of order:">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="MONEY_AT_PURCHASE" layoutX="193.0" layoutY="31.0" prefHeight="18.0" prefWidth="161.0">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="72.0" fitWidth="74.0" layoutX="221.0" layoutY="72.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@assets/DELVERY.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="72.0" fitWidth="72.0" layoutX="375.0" layoutY="72.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@assets/CASH%20BALANCE.png" />
+         </image>
+      </ImageView>
+      <Label fx:id="NO_Balance_label" alignment="CENTER" layoutX="232.0" layoutY="207.0" prefHeight="18.0" prefWidth="194.0" textFill="RED" />
+   </children>
+</AnchorPane>

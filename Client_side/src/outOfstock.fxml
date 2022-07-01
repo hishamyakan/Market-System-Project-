@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="283.0" prefWidth="385.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="OutOfstockController">
+   <children>
+      <TableView fx:id="OUTOFSTOCKTABLE" layoutY="45.0" prefHeight="238.0" prefWidth="385.0">
+        <columns>
+          <TableColumn fx:id="ITEMNAME" prefWidth="101.59997862577438" text="Item Name" />
+          <TableColumn fx:id="ITEMDESCRIPTION" prefWidth="139.20001220703125" text="Description" />
+            <TableColumn fx:id="AVAILABLEQUANTITES" prefWidth="147.99998474121094" text="Available quantities" />
+        </columns>
+      </TableView>
+      <Label layoutX="138.0" layoutY="14.0" prefHeight="18.0" prefWidth="118.0" text="Out Of Stock !!" textFill="#ea2c2c">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>
