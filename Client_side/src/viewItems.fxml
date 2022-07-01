@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="243.0" prefWidth="449.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ViewItemsController">
+   <children>
+      <TableView fx:id="ITEM_IN_ORDER_TABLE" layoutY="48.0" prefHeight="240.0" prefWidth="456.0" stylesheets="@style.css">
+        <columns>
+          <TableColumn fx:id="ITEMNAME" prefWidth="96.00006103515625" text="item name" />
+          <TableColumn fx:id="ITEMPRICE" prefWidth="113.5999755859375" text="item price" />
+            <TableColumn fx:id="ITEMCATEGORY" prefWidth="117.60003662109375" text="category" />
+            <TableColumn fx:id="ITEMQUANTITY" prefWidth="128.0" text="quantity" />
+        </columns>
+      </TableView>
+      <Label layoutX="161.0" layoutY="14.0" prefHeight="18.0" prefWidth="60.0" text="Order id:">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font></Label>
+      <Label fx:id="ORDER_ID_LABEL" layoutX="221.0" layoutY="15.0" prefHeight="18.0" prefWidth="72.0">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font></Label>
+   </children>
+</AnchorPane>

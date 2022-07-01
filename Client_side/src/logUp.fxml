@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" style="-fx-background-color: white;" stylesheets="@style.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="LogUpController">
+   <children>
+      <Label prefHeight="33.0" prefWidth="1000.0" style="-fx-background-color: #41a646;" text=" Market Place System" textFill="WHITE">
+         <font>
+            <Font name="Berlin Sans FB Bold" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="23.0" layoutY="138.0" prefHeight="18.0" prefWidth="46.0" text="Name:" AnchorPane.leftAnchor="23.0">
+         <font>
+            <Font size="14.0" />
+         </font></Label>
+      <Button fx:id="SIGNUP" layoutX="153.0" layoutY="525.0" mnemonicParsing="false" onAction="#signup" prefHeight="35.0" prefWidth="231.0" style="-fx-background-color: #41a646;" stylesheets="@searchButton.css" text="Sign Up" textFill="WHITE" AnchorPane.leftAnchor="153.0" AnchorPane.rightAnchor="616.0">
+         <font>
+            <Font name="Berlin Sans FB Bold" size="18.0" />
+         </font>
+      </Button>
+      <TextField fx:id="FIRSTNAME" layoutX="156.0" layoutY="130.0" prefHeight="30.0" prefWidth="240.0" promptText="First Name" AnchorPane.leftAnchor="156.0" />
+      <PasswordField fx:id="CONFIRMPASSWORD" layoutX="154.0" layoutY="349.0" onAction="#confirmPasswordWritten" prefHeight="30.0" prefWidth="240.0" promptText="Confirm Password" AnchorPane.leftAnchor="154.0" />
+      <PasswordField fx:id="PASSWORD" layoutX="153.0" layoutY="305.0" prefHeight="30.0" prefWidth="240.0" promptText="Password" AnchorPane.bottomAnchor="264.6" AnchorPane.leftAnchor="153.0" />
+      <TextField fx:id="EMAIL" layoutX="154.0" layoutY="261.0" prefHeight="30.0" prefWidth="240.0" promptText="Email or Username" AnchorPane.bottomAnchor="308.6" AnchorPane.leftAnchor="154.0" />
+      <TextField fx:id="ADDRESS" layoutX="154.0" layoutY="218.0" prefHeight="30.0" prefWidth="240.0" promptText="Address" AnchorPane.leftAnchor="154.0" />
+      <TextField fx:id="LASTNAME" layoutX="411.0" layoutY="130.0" prefHeight="30.0" prefWidth="240.0" promptText="Last Name" AnchorPane.leftAnchor="411.0" />
+      <TextField fx:id="PHONE" layoutX="155.0" layoutY="176.0" prefHeight="30.0" prefWidth="240.0" promptText="Phone" AnchorPane.leftAnchor="155.0" />
+      <Label layoutX="19.0" layoutY="183.0" prefHeight="20.0" prefWidth="112.0" text="Phone Number:" AnchorPane.leftAnchor="19.0">
+         <font>
+            <Font size="14.0" />
+         </font></Label>
+      <Label layoutX="19.0" layoutY="221.0" text="Address:" AnchorPane.leftAnchor="19.0">
+         <font>
+            <Font size="14.0" />
+         </font></Label>
+      <Label layoutX="18.0" layoutY="265.0" text="Email or Username:" AnchorPane.leftAnchor="18.0">
+         <font>
+            <Font size="14.0" />
+         </font></Label>
+      <Label layoutX="18.0" layoutY="302.0" text="Password:" AnchorPane.leftAnchor="18.0">
+         <font>
+            <Font size="14.0" />
+         </font></Label>
+      <Label fx:id="WEAKORMISMATCH" layoutX="150.0" layoutY="436.0" prefHeight="18.0" prefWidth="402.0" textFill="#ea0303" AnchorPane.leftAnchor="150.0" AnchorPane.rightAnchor="448.0">
+         <font>
+            <Font size="13.0" />
+         </font></Label>
+      <Label layoutX="15.0" layoutY="45.0" prefHeight="35.0" prefWidth="112.0" text="Sign UP!">
+         <font>
+            <Font name="System Bold Italic" size="24.0" />
+         </font>
+      </Label>
+      <Label layoutX="15.0" layoutY="79.0" prefHeight="16.0" prefWidth="110.0" text="It's Quick and Easy!" textFill="#736a6a">
+         <font>
+            <Font name="System Italic" size="13.0" />
+         </font>
+      </Label>
+      <Line endX="877.1595458984375" endY="-1.52587890625E-5" layoutX="108.70710754394531" layoutY="103.0" startX="-100.0" stroke="#d4cfcf" AnchorPane.leftAnchor="8.0" AnchorPane.rightAnchor="13.42626953125" />
+      <Label fx:id="emptyfeilds" layoutX="152.0" layoutY="442.0" prefHeight="18.0" prefWidth="301.0" textFill="RED">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </Label>
+      <Label fx:id="matching" layoutX="156.0" layoutY="383.0" prefHeight="19.0" prefWidth="147.0" textFill="#08cf18">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </Label>
+      <Label fx:id="matching1" layoutX="156.0" layoutY="385.0" prefHeight="19.0" prefWidth="153.0" textFill="#ea0303">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </Label>
+      <Button fx:id="BACK" layoutX="639.0" layoutY="525.0" mnemonicParsing="false" onAction="#back_to_login" prefHeight="35.0" prefWidth="231.0" style="-fx-background-color: gray;" text="Back" textFill="WHITE">
+         <font>
+            <Font name="Berlin Sans FB Bold" size="18.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>
