@@ -26,6 +26,19 @@ public class Main extends Application {
                 stg.hide();
             }
         });
+        /////////
+         try {
+            File myObj = new File("src/ConfigIp.txt");
+            if (myObj.createNewFile()) {
+                System.out.println("File created: " + myObj.getName());
+            } else {
+                System.out.println("File already exists.");
+            }
+        } catch (IOException e) {
+            System.out.println("An error occurred.");
+            e.printStackTrace();
+        }
+        ////////
         stg.getIcons().add(new Image("assets/market.png"));
         boolean f=new File("src/betangena").mkdirs();
         boolean b=new File("src/betangena/Video Games").mkdirs();
