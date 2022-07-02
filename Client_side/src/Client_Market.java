@@ -9,14 +9,17 @@
  * Author : Hisham Yakan AbuBakr
  *******************************************************************************/
 
+import java.io.*;
 import java.net.Socket;
 import java.util.ArrayList;
+import java.util.Base64;
+import java.util.Scanner;
 
 
 public class Client_Market {
 
     //IP Address of the server that will be constant all the time.
-    private static final String IP = "192.168.1.17";
+    private String IP="blabla" ;
 
     // Port Number Chosen for the Program.
     private static final int port = 9090;
@@ -42,7 +45,19 @@ public class Client_Market {
      * Used with: Client & Admin.
      * */
     public Client_Market() {
-
+        try {
+            File myObj = new File("src/ConfigIp.txt");
+            Scanner myReader = new Scanner(myObj);
+            while (myReader.hasNextLine()) {
+                String data = myReader.nextLine();
+                IP=data;
+                System.out.println(data);
+            }
+            myReader.close();
+        } catch (FileNotFoundException e) {
+            System.out.println("An error occurred.");
+            e.printStackTrace();
+        }
     }
 
     /*
@@ -57,6 +72,20 @@ public class Client_Market {
 
     public Client_Market(String defaultImagePath) {
         this.defaultImagePath = defaultImagePath;
+        ///////////////
+        try {
+            File myObj = new File("src/ConfigIp.txt");
+            Scanner myReader = new Scanner(myObj);
+            while (myReader.hasNextLine()) {
+                String data = myReader.nextLine();
+                IP=data;
+                System.out.println(data);
+            }
+            myReader.close();
+        } catch (FileNotFoundException e) {
+            System.out.println("An error occurred.");
+            e.printStackTrace();
+        }
     }
 
 
